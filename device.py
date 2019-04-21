@@ -11,8 +11,10 @@ class Device:
     def __init__(self):
         desired_caps = {}
         desired_caps['platformName'] = 'Android'
-        desired_caps['platformVersion'] = '6.0'
-        desired_caps['deviceName'] = 'HTC_X9u'
+        desired_caps['platformVersion'] = '7.1.1'
+        desired_caps['deviceName'] = 'Xperia M4 Aqua(AOSP)'
+        # desired_caps['platformVersion'] = '8.0'
+        # desired_caps['deviceName'] = 'H4233'
         desired_caps['appPackage'] = 'de.php_tech.piggybudget'
         desired_caps['appActivity'] = 'de.php_tech.piggybudget.MainActivity'
         self.driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
