@@ -21,5 +21,5 @@ class HistoryTest(piggy_test_case.PiggyTestCase):
         self.myDevice.enter_numbers("1000")
         self.myDevice.submit()
         self.wait(5)
-        self.assertEqual(self.myDevice.total_budget_text().text, "-2000€")
-        self.assertEqual(self.myDevice.today_budget_text().text, "-2000€")
+        self.assertEqual(self.myDevice.total_budget_text().text, "-1000€")
+        self.assertEqual(self.myDevice.today_budget_text().text, "-1000€")
