@@ -12,10 +12,10 @@ class Device:
     def __init__(self):
         desired_caps = {}
         desired_caps['platformName'] = 'Android'
-        desired_caps['platformVersion'] = '6.0'
-        desired_caps['deviceName'] = 'HTC_X9u'
-        # desired_caps['platformVersion'] = '7.1.1'
-        # desired_caps['deviceName'] = 'Xperia M4 Aqua(AOSP)'
+        # desired_caps['platformVersion'] = '6.0'
+        # desired_caps['deviceName'] = 'HTC_X9u'
+        desired_caps['platformVersion'] = '7.1.1'
+        desired_caps['deviceName'] = 'Xperia M4 Aqua(AOSP)'
         # desired_caps['platformVersion'] = '8.1.0'
         # desired_caps['deviceName'] = 'Xperia Z3C'
         desired_caps['appPackage'] = 'de.php_tech.piggybudget'
@@ -137,6 +137,12 @@ class Device:
     def current_activity(self):
         return self.driver.current_activity
 
+    def crash(self):
+        if "Launcher" not in self.driver.current_activity:
+            return False
+        else:
+            return True
+
     def click_SETTINGS(self):
         vision = EC.visibility_of_element_located((By.XPATH, xpath.SETTINGS))
         SETTINGS = self.wait.until((vision), "wait error, no SETTINGS")
@@ -157,6 +163,53 @@ class Device:
         vision = EC.visibility_of_element_located((By.XPATH, xpath.Currency))
         SETTINGS = self.wait.until((vision), "wait error, no Currency_text")
         return SETTINGS
+
+    def click_HISTORY(self):
+        vision = EC.visibility_of_element_located((By.XPATH, xpath.HISTORY))
+        HISTORY = self.wait.until((vision), "wait error, no HISTORY")
+        HISTORY.click()
+
+    def history_data(self):
+        vision = EC.visibility_of_element_located(
+            (By.XPATH, xpath.HistoryData))
+        data = self.wait.until((vision), "wait error, no history data")
+        return data
+
+    def click_history_detail(self):
+        vision = EC.visibility_of_element_located((By.XPATH, xpath.HistoryDataDetail))
+        HISTORY = self.wait.until((vision), "wait error")
+        HISTORY.click()
+
+    def click_history_edit(self):
+        vision = EC.visibility_of_element_located((By.XPATH, xpath.HistoryDataEdit))
+        HISTORY = self.wait.until((vision), "wait error")
+        HISTORY.click()
+
+    def click_history_make_expense(self):
+        vision = EC.visibility_of_element_located((By.XPATH, xpath.HistoryDataMakeExpense))
+        HISTORY = self.wait.until((vision), "wait error")
+        HISTORY.clear()
+
+    def click_history_delete(self):
+        vision = EC.visibility_of_element_located((By.XPATH, xpath.HistoryDataDelete))
+        HISTORY = self.wait.until((vision), "wait error")
+        HISTORY.clear()
+    
+    def click_history_delete_Yes(self):
+        vision = EC.visibility_of_element_located((By.XPATH, xpath.HistoryDataDeleteYes))
+        HISTORY = self.wait.until((vision), "wait error")
+        HISTORY.clear()
+
+    def click_history_delete_No(self):
+        vision = EC.visibility_of_element_located((By.XPATH, xpath.HistoryDataDeleteNo))
+        HISTORY = self.wait.until((vision), "wait error")
+        HISTORY.clear()
+
+
+    def clear_input(self):
+        vision = EC.visibility_of_element_located((By.XPATH, xpath.input_number))
+        HISTORY = self.wait.until((vision), "wait error")
+        HISTORY.clear()
 
     def enter_setting_income(self, txt):
         el3 = self.driver.find_element_by_xpath(xpath.Income)

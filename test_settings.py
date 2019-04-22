@@ -27,4 +27,5 @@ class SettingTest(piggy_test_case.PiggyTestCase):
         self.myDevice.click_setting_income()
         self.myDevice.back()
         self.wait(2)
-        self.assertEqual(self.myDevice.current_activity(),".Launcher") #.Launcher 代表app crash回到主畫面
+        # self.assertEqual(self.myDevice.current_activity(),".Launcher") #.Launcher 代表app crash回到主畫面
+        self.assertTrue(self.myDevice.crash())
