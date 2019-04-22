@@ -7,9 +7,11 @@ import time
 
 def main():
     suite = unittest.TestSuite()
-    tests = [unittest.TestLoader().loadTestsFromName(
-        'test_home.HomeTest'), unittest.TestLoader().loadTestsFromName(
-        'test_history.HistoryTest'), unittest.TestLoader().loadTestsFromName("test_settings")]
+    tests = [
+        unittest.TestLoader().loadTestsFromName('test_home.HomeTest'),
+        unittest.TestLoader().loadTestsFromName('test_history.HistoryTest'), 
+        unittest.TestLoader().loadTestsFromName("test_settings.SettingTest")
+        ]
     suite.addTests(tests)
     test_result = unittest.TextTestRunner(verbosity=2).run(suite)
 
