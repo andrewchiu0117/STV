@@ -11,10 +11,12 @@ class Device:
     def __init__(self):
         desired_caps = {}
         desired_caps['platformName'] = 'Android'
-        desired_caps['platformVersion'] = '7.1.1'
-        desired_caps['deviceName'] = 'Xperia M4 Aqua(AOSP)'
-        # desired_caps['platformVersion'] = '8.0'
-        # desired_caps['deviceName'] = 'H4233'
+        desired_caps['platformVersion'] = '6.0'
+        desired_caps['deviceName'] = 'HTC_X9u'
+        # desired_caps['platformVersion'] = '7.1.1'
+        # desired_caps['deviceName'] = 'Xperia M4 Aqua(AOSP)'
+        # desired_caps['platformVersion'] = '8.1.0'
+        # desired_caps['deviceName'] = 'Xperia Z3C'
         desired_caps['appPackage'] = 'de.php_tech.piggybudget'
         desired_caps['appActivity'] = 'de.php_tech.piggybudget.MainActivity'
         self.driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
@@ -121,3 +123,9 @@ class Device:
         self.driver.reset()
         time.sleep(5)
         self.driver.launch_app()
+
+    def end_test_coverage(self):
+        return self.driver.end_test_coverage("intent","path")
+
+    def current_activity(self):
+        return self.driver.current_activity
