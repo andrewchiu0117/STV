@@ -1,7 +1,7 @@
 import piggy_test_case
 
 
-class HistoryTest(piggy_test_case.PiggyTestCase):
+class SettingTest(piggy_test_case.PiggyTestCase):
 
     def test_changecurrencytoMexicanPeso(self):
         self.wait(1)
