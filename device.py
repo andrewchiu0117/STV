@@ -137,6 +137,12 @@ class Device:
     def current_activity(self):
         return self.driver.current_activity
 
+    def crash(self):
+        if "Launcher" not in self.driver.current_activity:
+            return False
+        else:
+            return True
+
     def click_SETTINGS(self):
         vision = EC.visibility_of_element_located((By.XPATH, xpath.SETTINGS))
         SETTINGS = self.wait.until((vision), "wait error, no SETTINGS")
@@ -144,18 +150,18 @@ class Device:
 
     def click_Currency(self):
         vision = EC.visibility_of_element_located((By.XPATH, xpath.Currency))
-        SETTINGS = self.wait.until((vision), "wait error, no SETTINGS")
+        SETTINGS = self.wait.until((vision), "wait error, no Currency")
         SETTINGS.click()
 
     def click_Currencytype_MexicanPeso(self):
         vision = EC.visibility_of_element_located(
             (By.XPATH, xpath.Currencytype_MexicanPeso))
-        SETTINGS = self.wait.until((vision), "wait error, no SETTINGS")
+        SETTINGS = self.wait.until((vision), "wait error, no Currencytype_MexicanPeso")
         SETTINGS.click()
 
     def Currency_text(self):
         vision = EC.visibility_of_element_located((By.XPATH, xpath.Currency))
-        SETTINGS = self.wait.until((vision), "wait error, no Currency")
+        SETTINGS = self.wait.until((vision), "wait error, no Currency_text")
         return SETTINGS
 
     def click_HISTORY(self):
@@ -205,3 +211,14 @@ class Device:
         HISTORY = self.wait.until((vision), "wait error")
         HISTORY.clear()
 
+    def enter_setting_income(self, txt):
+        el3 = self.driver.find_element_by_xpath(xpath.Income)
+        el3.send_keys(txt)
+
+    def click_setting_income(self):
+        vision = EC.visibility_of_element_located((By.XPATH, xpath.Income))
+        Income = self.wait.until((vision), "wait error, no Income")
+        Income.click()
+
+    def back(self):
+        self.driver.press_keycode(67)

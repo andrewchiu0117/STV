@@ -1,14 +1,19 @@
 from appium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
-import test_history, test_settings
+import test_home, test_history, test_settings
 import unittest
 import time
 
 
 def main():
     suite = unittest.TestSuite()
-    tests = [unittest.TestLoader().loadTestsFromName(
-        'test_history.HistoryTest')]
+
+    tests = [
+        unittest.TestLoader().loadTestsFromName('test_home.HomeTest'),
+        unittest.TestLoader().loadTestsFromName('test_history.HistoryTest'), 
+        unittest.TestLoader().loadTestsFromName("test_settings.SettingTest")
+        ]
+
     suite.addTests(tests)
     test_result = unittest.TextTestRunner(verbosity=2).run(suite)
 

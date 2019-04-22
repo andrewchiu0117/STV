@@ -19,3 +19,13 @@ class SettingTest(piggy_test_case.PiggyTestCase):
         self.wait(1)
         self.assertEqual(
             self.myDevice.Currency_text().text, "Euro")
+
+    def test_income(self):
+        self.wait(2)
+        self.myDevice.click_SETTINGS()
+        self.wait(2)
+        self.myDevice.click_setting_income()
+        self.myDevice.back()
+        self.wait(2)
+        # self.assertEqual(self.myDevice.current_activity(),".Launcher") #.Launcher 代表app crash回到主畫面
+        self.assertTrue(self.myDevice.crash())
