@@ -1,6 +1,8 @@
 from appium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
-import test_home, test_history, test_settings
+import test_home
+import test_history
+import test_settings
 import unittest
 import time
 
@@ -10,9 +12,10 @@ def main():
 
     tests = [
         unittest.TestLoader().loadTestsFromName('test_home.HomeTest'),
-        unittest.TestLoader().loadTestsFromName('test_history.HistoryTest'), 
+        unittest.TestLoader().loadTestsFromName('test_homeisp.HomeTestISP'),
+        unittest.TestLoader().loadTestsFromName('test_history.HistoryTest'),
         unittest.TestLoader().loadTestsFromName("test_settings.SettingTest")
-        ]
+    ]
 
     suite.addTests(tests)
     test_result = unittest.TextTestRunner(verbosity=2).run(suite)
