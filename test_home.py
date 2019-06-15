@@ -56,4 +56,4 @@ class HomeTest(piggy_test_case.PiggyTestCase):
         self.myDevice.submit()
         self.wait(5)
         # self.assertEqual(self.myDevice.current_activity(),".Launcher") #.Launcher 代表app crash回到主畫面
-        self.assertTrue(self.myDevice.crash())
+        self.assertFalse(self.myDevice.crash())
