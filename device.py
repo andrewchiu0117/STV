@@ -14,10 +14,10 @@ class Device:
         desired_caps['platformName'] = 'Android'
         # desired_caps['platformVersion'] = '6.0'
         # desired_caps['deviceName'] = 'HTC_X9u'
-        desired_caps['platformVersion'] = '7.1.1'
-        desired_caps['deviceName'] = 'Xperia M4 Aqua(AOSP)'
-        # desired_caps['platformVersion'] = '8.1.0'
-        # desired_caps['deviceName'] = 'Xperia Z3C'
+        # desired_caps['platformVersion'] = '7.1.1'
+        # desired_caps['deviceName'] = 'Xperia M4 Aqua(AOSP)'
+        desired_caps['platformVersion'] = '8.1.0'
+        desired_caps['deviceName'] = 'Xperia Z3C'
         desired_caps['appPackage'] = 'de.php_tech.piggybudget'
         desired_caps['appActivity'] = 'de.php_tech.piggybudget.MainActivity'
         self.driver = webdriver.Remote(
@@ -28,16 +28,18 @@ class Device:
         self.driver.quit()
 
     def click_expense(self):
-        vision = EC.visibility_of_element_located(
-            (By.XPATH, xpath.expense_xpath))
-        expense_btn = self.wait.until((vision), "wait error, no expense_btn")
-        expense_btn.click()
+        try:
+            expense_btn = WebDriverWait(self.driver,20,0.5).until(EC.visibility_of_element_located((By.XPATH, xpath.expense_xpath)))
+            expense_btn.click()
+        except TimeoutError:
+            print('wait error, no expense_btn')
 
     def click_income(self):
-        vision = EC.visibility_of_element_located(
-            (By.XPATH, xpath.income_xpath))
-        income_btn = self.wait.until((vision), "wait error, no income_btn")
-        income_btn.click()
+        try:
+            income_btn = WebDriverWait(self.driver,20,0.5).until(EC.visibility_of_element_located((By.XPATH, xpath.income_xpath)))
+            income_btn.click()
+        except TimeoutError:
+            print('wait error, no income_btn')
 
     def total_budget_text(self):
         vision = EC.visibility_of_element_located(
@@ -177,43 +179,44 @@ class Device:
 
     def click_history_detail(self):
         vision = EC.visibility_of_element_located((By.XPATH, xpath.HistoryDataDetail))
-        HISTORY = self.wait.until((vision), "wait error")
+        HISTORY = self.wait.until((vision), "wait error, no history detail")
         HISTORY.click()
 
     def click_history_edit(self):
         vision = EC.visibility_of_element_located((By.XPATH, xpath.HistoryDataEdit))
-        HISTORY = self.wait.until((vision), "wait error")
+        HISTORY = self.wait.until((vision), "wait error, no history edit")
         HISTORY.click()
 
     def click_history_make_expense(self):
         vision = EC.visibility_of_element_located((By.XPATH, xpath.HistoryDataMakeExpense))
-        HISTORY = self.wait.until((vision), "wait error")
+        HISTORY = self.wait.until((vision), "wait error, no history make expense")
         HISTORY.clear()
 
     def click_history_delete(self):
         vision = EC.visibility_of_element_located((By.XPATH, xpath.HistoryDataDelete))
-        HISTORY = self.wait.until((vision), "wait error")
+        HISTORY = self.wait.until((vision), "wait error, no history delete")
         HISTORY.clear()
     
     def click_history_delete_Yes(self):
         vision = EC.visibility_of_element_located((By.XPATH, xpath.HistoryDataDeleteYes))
-        HISTORY = self.wait.until((vision), "wait error")
+        HISTORY = self.wait.until((vision), "wait error, no history delete yes")
         HISTORY.clear()
 
     def click_history_delete_No(self):
         vision = EC.visibility_of_element_located((By.XPATH, xpath.HistoryDataDeleteNo))
-        HISTORY = self.wait.until((vision), "wait error")
+        HISTORY = self.wait.until((vision), "wait error, no history delete no")
         HISTORY.clear()
 
 
     def clear_input(self):
         vision = EC.visibility_of_element_located((By.XPATH, xpath.input_number))
-        HISTORY = self.wait.until((vision), "wait error")
+        HISTORY = self.wait.until((vision), "wait error, no clear input")
         HISTORY.clear()
 
     def enter_setting_income(self, txt):
-        el3 = self.driver.find_element_by_xpath(xpath.Income)
-        el3.send_keys(txt)
+        vision = EC.visibility_of_element_located((By.XPATH, xpath.Income))
+        Income = self.wait.until((vision), "wait error, no Income")
+        Income.send_keys(txt)
 
     def click_setting_income(self):
         vision = EC.visibility_of_element_located((By.XPATH, xpath.Income))
