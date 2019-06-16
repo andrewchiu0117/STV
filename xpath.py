@@ -35,3 +35,12 @@ HistoryDataMakeExpense =    "/hierarchy/android.widget.FrameLayout/android.widge
 HistoryDataDelete =         "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[3]/android.view.ViewGroup[2]/android.view.ViewGroup[3]"
 HistoryDataDeleteYes =      "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[2]/android.widget.TextView"
 HistoryDataDeleteNo =       "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[1]/android.widget.TextView"
+
+stats =                     ""
+stats_daily_expenses_week = ""
+stats_daily_expenses_month= ""
+stats_daily_income_week =   ""
+stats_daily_income_month =  ""
+stats_distribution_week =   ""
+stats_distribution_month =  ""
+stats_distribution_year =   ""

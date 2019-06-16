@@ -1,7 +1,7 @@
 import piggy_test_case
 
 
-class HistoryTest(piggy_test_case.PiggyTestCase):
+class HistoryTestISP(piggy_test_case.PiggyTestCase):
 
     def test_case_add_and_check_income(self):
         self.wait(5)
