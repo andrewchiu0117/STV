@@ -26,6 +26,14 @@ class Device:
 
     def close(self):
         self.driver.quit()
+    
+    def swipeUp(self, t=500, n=1):
+        l = self.driver.get_window_size()
+        x1 = l['width'] * 0.5     # x坐标
+        y1 = l['height'] * 0.75   # 起始y坐标
+        y2 = l['height'] * 0.25   # 终点y坐标
+        for i in range(n):
+            self.driver.swipe(x1, y1, x1, y2, t)
 
     def click_expense(self):
         try:
