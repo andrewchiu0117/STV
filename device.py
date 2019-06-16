@@ -216,12 +216,43 @@ class Device:
     def enter_setting_income(self, txt):
         vision = EC.visibility_of_element_located((By.XPATH, xpath.Income))
         Income = self.wait.until((vision), "wait error, no Income")
-        Income.send_keys(txt)
+        for i in range(0, len(txt)):
+            if self.crash() == False:
+                Income.set_value(txt[i])
+    
+    def click_setting_icon1(self):
+        vision = EC.visibility_of_element_located((By.XPATH, xpath.Setting_icon1))
+        Icon_1 = self.wait.until((vision), "wait error, no Setting icon1")
+        Icon_1.click()
+
+    def enter_setting_icon_search(self, txt):
+        vision = EC.visibility_of_element_located((By.XPATH, xpath.Setting_search))
+        Setting_search = self.wait.until((vision), "wait error, no Setting icon1")
+        Setting_search.send_keys(txt)
+
+    def get_setting_income(self):
+        vision = EC.visibility_of_element_located((By.XPATH, xpath.Income_data))
+        Income_data = self.wait.until((vision), "wait error, no Income data")
+        return Income_data
+    
+    def get_setting_search_data(self):
+        import selenium
+        try:
+            vision = EC.visibility_of_all_elements_located((By.XPATH, xpath.Setting_search_data))
+            Setting_search_data = self.wait.until((vision), "wait error, no setting Search data")
+        except selenium.common.exceptions.TimeoutException:
+            return 0
+
+        return Setting_search_data
 
     def click_setting_income(self):
         vision = EC.visibility_of_element_located((By.XPATH, xpath.Income))
         Income = self.wait.until((vision), "wait error, no Income")
+        
         Income.click()
 
     def back(self):
         self.driver.press_keycode(67)
+    
+    def back_key(self):
+        self.driver.press_keycode(4)
