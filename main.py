@@ -11,12 +11,13 @@ def main():
     suite = unittest.TestSuite()
 
     tests = [
-        # unittest.TestLoader().loadTestsFromName('test_home.HomeTest'),
-        # unittest.TestLoader().loadTestsFromName('test_homeisp.HomeTestISP'),
-        # unittest.TestLoader().loadTestsFromName('test_history.HistoryTest'),
-        # unittest.TestLoader().loadTestsFromName('test_historyisp.HistoryTestISP'),
-        # unittest.TestLoader().loadTestsFromName("test_settings.SettingTest"),
-        unittest.TestLoader().loadTestsFromName("test_settingsisp.SettingTestISP")
+        unittest.TestLoader().loadTestsFromName('test_home.HomeTest'),
+        unittest.TestLoader().loadTestsFromName('test_history.HistoryTest'),
+        unittest.TestLoader().loadTestsFromName('test_stats.StatsTest'),
+        unittest.TestLoader().loadTestsFromName("test_settings.SettingTest"),
+        unittest.TestLoader().loadTestsFromName('test_homeisp.HomeTestISP'),
+        unittest.TestLoader().loadTestsFromName('test_historyisp.HistoryTestISP'),
+        unittest.TestLoader().loadTestsFromName('test_settingsisp.SettingTestISP')
     ]
 
     suite.addTests(tests)

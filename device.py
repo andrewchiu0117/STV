@@ -251,6 +251,46 @@ class Device:
         
         Income.click()
 
+    def click_stats(self):
+        vision = EC.visibility_of_element_located((By.XPATH, xpath.stats))
+        stats = self.wait.until((vision), "wait error, no stats")
+        stats.click()
+
+    def click_stats_daily_expenses_week(self):
+        vision = EC.visibility_of_element_located((By.XPATH, xpath.stats_daily_expenses_week))
+        stats = self.wait.until((vision), "wait error, no stats_daily_expenses_week")
+        stats.click()
+
+    def click_stats_daily_expenses_month(self):
+        vision = EC.visibility_of_element_located((By.XPATH, xpath.stats_daily_expenses_month))
+        stats = self.wait.until((vision), "wait error, no stats_daily_expenses_month")
+        stats.click()
+
+    def click_stats_daily_income_week(self):
+        vision = EC.visibility_of_element_located((By.XPATH, xpath.stats_daily_income_week))
+        stats = self.wait.until((vision), "wait error, no stats_daily_income_week")
+        stats.click()
+
+    def click_stats_daily_income_month(self):
+        vision = EC.visibility_of_element_located((By.XPATH, xpath.stats_daily_income_month))
+        stats = self.wait.until((vision), "wait error, no stats_stats_daily_income_month")
+        stats.click()
+        
+    def click_stats_distribution_expenses_week(self):
+        vision = EC.visibility_of_element_located((By.XPATH, xpath.stats_distribution_week))
+        stats = self.wait.until((vision), "wait error, no stats_distribution_expenses_week")
+        stats.click()
+
+    def click_stats_distribution_expenses_month(self):
+        vision = EC.visibility_of_element_located((By.XPATH, xpath.stats_distribution_month))
+        stats = self.wait.until((vision), "wait error, no stats_distribution_expenses_month")
+        stats.click()
+
+    def click_stats_distribution_expenses_year(self):
+        vision = EC.visibility_of_element_located((By.XPATH, xpath.stats_distribution_year))
+        stats = self.wait.until((vision), "wait error, no stats_distribution_expenses_year")
+        stats.click()
+
     def back(self):
         self.driver.press_keycode(67)
     
